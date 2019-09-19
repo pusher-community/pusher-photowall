@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Photo Wall</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1 id='title'>Live Photo Feed</h1>
+    <div class="gallery">
+      <img class="photo" v-for='image in images.reverse()' :key='image.public_id' :src="image.secure_url">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
