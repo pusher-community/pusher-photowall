@@ -13,7 +13,7 @@
   <div id="app">
     <h1 id='title'>Live Photo Feed</h1>
     <div class="gallery">
-      <img class="photo" v-for='image in images.reverse()' :key='image.public_id' :src="image.secure_url">
+      <img class="photo" v-for='image in images' :key='image.public_id' :src="image.secure_url">
     </div>
   </div>
 

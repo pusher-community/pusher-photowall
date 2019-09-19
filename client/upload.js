@@ -40,7 +40,7 @@ let capture;
 let canvas;
 
 function setup() {
-  canvas = createCanvas(windowWidth, (windowWidth/100)*56);
+  canvas = createCanvas(windowWidth, (windowWidth/100)*70);
   capture = createCapture(VIDEO);
   capture.size(500, 500);
   capture.hide();
