@@ -15,11 +15,7 @@ const app = new Vue({
   },
   methods: {
     pushNewPhotoToWall(url) {
-      console.group();
-      console.log('Before: ' + this.images.length, this.images)
       this.images = [url, ...this.images]
-      console.log('After: ' + this.images.length, this.images)
-      console.groupEnd();
     }
   },
 })
