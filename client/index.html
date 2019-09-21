@@ -10,10 +10,17 @@
 </head>
 
 <body>
-  <div id="app">
-    <h1 id='title'>Live Photo Feed</h1>
-    <div class="gallery">
-      <img class="photo" v-for='image in images' :key='image.public_id' :src="image.secure_url">
+  <div id="app" class='wall'>
+    <div class="big">
+      <img :src="images[0]" v-if='images.length>0'>
+      <img src="https://avatars.io/twitter/pusher" v-else>
+      <div class="text">
+        <h1>Add a photo to the wall!</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta rerum quo nisi voluptatibus.</p>
+      </div>
+    </div>
+    <div class="gallery" v-if='images.length>1'>
+      <img class="photo" v-for='image in images' :key='image' :src="image">
     </div>
   </div>
 

@@ -8,6 +8,7 @@ const cloudinary = require('cloudinary');
 const cors = require('cors');
 const Datastore = require('nedb');
 const Pusher = require('pusher');
+const path = require("path");
 
 const app = express();
 const db = new Datastore();
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client')));
 
 const multipartMiddleware = multipart();
 
@@ -56,6 +58,14 @@ app.post('/upload', multipartMiddleware, (req, res) => {
       res.status(200).json(newDoc);
     });
   });
+});
+
+app.get('/upload', function(req, res) {
+  res.sendfile('./client/upload.html');
+});
+
+app.get('/wall', function(req, res) {
+  res.sendfile('./client/index.html');
 });
 
 app.set('port', process.env.PORT || 5000);

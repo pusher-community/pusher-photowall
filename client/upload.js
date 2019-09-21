@@ -40,7 +40,7 @@ let capture;
 let canvas;
 
 function setup() {
-  canvas = createCanvas(windowWidth, (windowWidth/100)*70);
+  canvas = createCanvas(700, 500);
   capture = createCapture(VIDEO);
   capture.size(500, 500);
   capture.hide();
@@ -54,9 +54,11 @@ function draw() {
 }
 
 async function keyPressed() {
-  const c = document.querySelectorAll('canvas')[0]
-  const d = c.toDataURL('image/png');
-  const b = await fetch(d).then(r=>r.blob())
-  app.fileChangedHandler(b);
+  if(app.loading == false) {
+    const c = document.querySelectorAll('canvas')[0]
+    const d = c.toDataURL('image/png');
+    const b = await fetch(d).then(r=>r.blob())
+    app.fileChangedHandler(b);
+  }
   return false; 
 }

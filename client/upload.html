@@ -10,13 +10,15 @@
 </head>
 
 <body>
- <div id="app">
+ <div id="app" class='upload'>
     <!-- <form @submit.prevent="uploadImage">
       <input type="file" @change="fileChangedHandler">
     </form> -->
-    <div id="cvs"></div>
-    <p v-if="loading">Uploading...</p>
-    <p v-else>Press any key to upload photo</p>
+    <div id="container">
+      <div id="cvs"></div>
+      <p v-if="loading">Uploading...</p>
+      <p v-else>Press any key to upload photo</p>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
