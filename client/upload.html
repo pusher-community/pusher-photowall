@@ -16,7 +16,12 @@
     </form> -->
     <div id="container">
       <div id="cvs"></div>
-      <p v-if="loading">Uploading...</p>
+      <div v-if='photoBeingTaken'>
+        <countdown :end-time="new Date().getTime() + 3000" @finish='uploadPhoto'>
+          <p slot="process" slot-scope="time">{{ `Get ready! Photo in: ${time.timeObj.ceil.s}` }}</p>
+          <p slot="finish">Uploading...</p>
+        </countdown>        
+      </div>
       <p v-else>Press any key to upload photo</p>
     </div>
   </div>
@@ -26,6 +31,7 @@
   <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+  <script src="https://unpkg.com/vue-awesome-countdown@latest"></script>
   <script src="upload.js"></script>
 </body>
 

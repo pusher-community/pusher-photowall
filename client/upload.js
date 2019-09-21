@@ -3,7 +3,8 @@ const app = new Vue({
   data: {
     selectedFile: null,
     loading: false,
-    images: []
+    images: [],
+    photoBeingTaken: false
   },
   async created() {
     axios.get('http://localhost:5000').then(({data}) => {
@@ -20,8 +21,14 @@ const app = new Vue({
     });
   },
   methods: {
+    async uploadPhoto() {
+      console.log('uploadPhoto');
+      const c = document.querySelectorAll('canvas')[0]
+      const d = c.toDataURL('image/png');
+      const b = await fetch(d).then(r=>r.blob())
+      this.fileChangedHandler(b);
+    },
     fileChangedHandler(event) {
-      this.loading = true;
       this.selectedFile = event;
       const formData = new FormData();
       formData.append(
@@ -30,7 +37,7 @@ const app = new Vue({
         new Date()
       );
       axios.post('http://localhost:5000/upload', formData).then(() => {
-        this.loading = false;
+        this.photoBeingTaken = false;
       });
     },
   },
@@ -53,12 +60,9 @@ function draw() {
   image(capture, 0, 0, width, height);
 }
 
-async function keyPressed() {
-  if(app.loading == false) {
-    const c = document.querySelectorAll('canvas')[0]
-    const d = c.toDataURL('image/png');
-    const b = await fetch(d).then(r=>r.blob())
-    app.fileChangedHandler(b);
+function keyPressed() {
+  if(app.photoBeingTaken == false) {
+    app.photoBeingTaken = true;
   }
   return false; 
 }
