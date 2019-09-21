@@ -16,13 +16,11 @@ const app = new Vue({
     });
     const channel = pusher.subscribe('gallery');
     channel.bind('upload', data => {
-      console.log('Upload event');
       this.images = [data.image, ...this.images]
     });
   },
   methods: {
     async uploadPhoto() {
-      console.log('uploadPhoto');
       const c = document.querySelectorAll('canvas')[0]
       const d = c.toDataURL('image/png');
       const b = await fetch(d).then(r=>r.blob())
