@@ -16,6 +16,12 @@
     </form> -->
     <div id="container">
       <div id="cvs"></div>
+      <img src="public/img/big-frame.png" class="upload-frame" />
+      <img src="public/img/triangirls-balloons.png" class="upload-bg--balloons" />
+      <!-- <img src="public/img/triangirls-one.png" class="upload-bg--one" /> -->
+
+
+
       <div v-if='photoBeingTaken'>
         <countdown :end-time="new Date().getTime() + 3000" @finish='uploadPhoto'>
           <p slot="process" slot-scope="time">{{ `Get ready! Photo in: ${time.timeObj.ceil.s}` }}</p>
