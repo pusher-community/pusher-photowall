@@ -12,10 +12,17 @@
     <div id="app" class="wall">
       <div class="big">
         <img :src="images[0]" />
-        <img src="public/img/big-frame.png" class="big-frame" />
+        <img src="public/img/frame-1.png" class="big-frame" />
       </div>
-      <div class="gallery" v-if="images.length>1">
-        <img class="photo" v-for="image in images" :key="image" :src="image" />
+      <div class="secondary-photos">
+        <div class="gallery" v-if="images.length>1">
+          <img
+            class="photo"
+            v-for="image in images"
+            :key="image"
+            :src="image"
+          />
+        </div>
       </div>
     </div>
 

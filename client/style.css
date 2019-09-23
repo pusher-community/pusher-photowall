@@ -5,6 +5,7 @@
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
+  background: #bde9c3;
 }
 
 #title {
@@ -12,9 +13,9 @@ body {
   text-align: center;
 }
 
-img {
+/* img {
   max-width: 100%;
-}
+} */
 
 form {
   text-align: center;
@@ -51,33 +52,27 @@ button {
   min-height: 25vh;
 }
 
-@media only screen and (min-width: 1300px) {
-  .gallery {
-    max-width: 29vw;
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .gallery {
-    max-width: 24vw;
-  }
-}
-
 .photo {
-  width: 100%;
-  object-fit: cover;
-  background-color: #d5d5d5;
-  max-height: 28vh;
-  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.2vh;
+  /* width: 800px;
+  height: 600px; */
+}
+.photo img {
+  height: 28vh;
 }
 
 p {
   text-align: center;
+  font-weight: 700;
+  font-size: 2em;
 }
 
 #app.upload {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   min-height: 100vh;
   background: #bde9c3;
@@ -91,14 +86,17 @@ p {
 #app.upload p {
   color: #0b48d8;
   font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .upload-frame {
   z-index: 10;
   position: absolute;
-  border: 4px solid #0b48d8;
+  /* border: 4px solid #0b48d8;
   width: 800px;
-  height: 600px;
+  height: 600px; */
 }
 
 #app.upload #container {
@@ -111,9 +109,11 @@ p {
   position: absolute;
   z-index: 1;
   width: 40%;
+  top: 4vh;
+  right: -7vw;
 }
 
-@media only screen and (max-width: 1400px) {
+/* @media only screen and (max-width: 1400px) {
   .upload-bg--balloons {
     top: -9vh;
     right: -7vw;
@@ -122,10 +122,9 @@ p {
 
 @media only screen and (min-width: 1500px) {
   .upload-bg--balloons {
-    top: -9vh;
-    right: -7vw;
+
   }
-}
+} */
 
 .upload-bg--one {
   position: absolute;
@@ -135,13 +134,22 @@ p {
   bottom: 1vh;
 }
 
+.upload-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-logo {
+  width: 30%;
+}
+
 #app.wall {
   background: #bde9c3;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 5vh;
+  margin: 0px 3vw;
+  justify-content: space-around;
 }
 
 #app.wall img {
@@ -161,23 +169,32 @@ p {
 }
 
 .big {
-  max-width: 60vw;
-  max-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  /* align-self: center; */
+  width: 60vw;
   position: relative;
-  margin-top: 5vh;
+  margin: 2.5em 0;
+  align-self: center;
+}
+
+/* @media only screen and (min-width: 1300px) {
+  .big {
+    align-self: baseline;
+  }
+} */
+
+.big img {
+  height: 70vh;
 }
 
 .big-frame {
   z-index: 10;
   position: absolute;
-  border: 4px solid #0b48d8;
+  left: 0;
+  top: 0;
+  height: 28vh;
 }
 
 .big-frame img {
-  max-height: 100%;
+  width: 30vw;
 }
 
 .big .text {
@@ -215,4 +232,58 @@ p {
 #pusher {
   height: 2em;
   text-align: center;
+}
+
+.secondary-photos {
+  margin: 2.5em 0;
+}
+
+.photo {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.2vh;
+  object-fit: cover;
+  /* width: 800px;
+  height: 600px; */
+}
+.photo img {
+  height: 28vh;
+}
+
+.gallery {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.big-photo {
+  object-fit: cover;
+}
+
+.upload-frame {
+  z-index: 10;
+  position: absolute;
+  height: 28vh;
+  height: 596px;
+}
+
+.upload-bg--balloons {
+  position: absolute;
+  z-index: 1;
+  width: 30%;
+  top: 3vh;
+  right: -13vw;
+}
+
+.upload-bg--one {
+  position: absolute;
+  z-index: 1;
+  width: 40%;
+  left: 3vw;
+  bottom: -10%;
+}
+
+@media only screen and (min-width: 1300px) {
+  .upload-bg--one {
+    bottom: -30%;
+  }
 }

@@ -11,14 +11,18 @@
 
 <body>
  <div id="app" class='upload'>
+   <div class="upload-logo-container">
+    <img src="public/img/triangirls-logo-full.png" class="upload-logo">
+  </div>
+  <img src="public/img/triangirls-one.png" class="upload-bg--balloons"/>
+  <img src="public/img/triangirls-one.png" class="upload-bg--one"/>
     <!-- <form @submit.prevent="uploadImage">
       <input type="file" @change="fileChangedHandler">
     </form> -->
     <div id="container">
+
       <div id="cvs"></div>
-      <img src="public/img/big-frame.png" class="upload-frame" />
-      <img src="public/img/triangirls-balloons.png" class="upload-bg--balloons" />
-      <!-- <img src="public/img/triangirls-one.png" class="upload-bg--one" /> -->
+      <img src="public/img/frame-1.png" class="upload-frame" />
 
 
 
@@ -29,7 +33,8 @@
         </countdown>        
       </div>
       <p v-else>Press any key to upload photo</p>
-      <img src="pusher.png" id='pusher'>
+      <img src="public/img/pusher.png" id='pusher' class="
+      upload-logo--small">
     </div>
   </div>
 
