@@ -58,6 +58,15 @@ button {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
 }
+
+.sparkle-left {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 3vw;
+  width: 30%;
+}
+
 .photo {
   position: relative;
   display: inline-block;
@@ -229,7 +238,7 @@ p {
 }
 
 #pusher {
-  height: 2em;
+  height: 4em;
   text-align: center;
 }
 
@@ -292,4 +301,14 @@ p {
   .upload-bg--one {
     bottom: -30%;
   }
+}
+
+.logo-wall {
+  position: absolute;
+  bottom: 1vh;
+  margin-left: 3vw;
+}
+
+.logo-wall img {
+  height: 6rem;
 }
