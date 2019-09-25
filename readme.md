@@ -1,6 +1,6 @@
 ## Pusher Photo 'Booth' and Wall
 
-Built by @phazonoverload
+Original project built by [@phazonoverload](https://github.com/phazonoverload/pusher-photowall)
 
 Press any key in a browser with camera access and have it automatically appear on the photo wall after being processed by Cloudinary. 
 
