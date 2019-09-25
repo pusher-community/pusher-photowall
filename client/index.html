@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Photo Wall</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Photo Wall</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <img src="public/img/triangirls-one.png" class="sparkle-left" />
 
-<body>
-  <div id="app" class='wall'>
-    <div class="big">
-      <img :src="images[0]" v-if='images.length>0'>
-      <img src="https://avatars.io/twitter/pusher" v-else>
-      <div class="text">
-        <h1>Add a photo to the wall!</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta rerum quo nisi voluptatibus.</p>
-        <img src="pusher.png" id='pusher'>
+    <div id="app" class="wall">
+      <div class="big">
+        <img :src="images[0]" />
+        <img src="public/img/frame-1.png" class="big-frame" />
+      </div>
+      <div class="secondary-photos">
+        <div class="gallery" v-if="images.length>1">
+          <img
+            class="photo"
+            v-for="image in images"
+            :key="image"
+            :src="image"
+          />
+        </div>
+      </div>
+      <div class="secondary-photos secondary-photos--frames">
+        <div class="frames">
+          <img src="public/img/frame-2.png" class="photo" />
+          <img src="public/img/frame-3.png" class="photo" />
+          <img src="public/img/frame-4.png" class="photo" />
+        </div>
       </div>
     </div>
-    <div class="gallery" v-if='images.length>1'>
-      <img class="photo" v-for='image in images' :key='image' :src="image">
+    <div class="logo-wall">
+      <img src="public/img/collab.png" />
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
-  <script src="script.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
